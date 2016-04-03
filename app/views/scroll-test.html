@@ -69,38 +69,29 @@
 <div class="wrap">
   <nav>
     <ul>
-      <li><a href="#section-1" du-smooth-scroll du-scrollspy>Section 1</a></li>
-      <li><a href="#section-2" du-smooth-scroll du-scrollspy>Section 2</a></li>
-      <li><a du-smooth-scroll="section-3" du-scrollspy>Section 3</a></li>
-      <li><a href="http://github.com/oblador/angular-scroll/">Project on Github</a></li>
+      <li ng-repeat="s in sections">
+        <a ng-href="#section-{{$index}}" du-smooth-scroll du-scrollspy>{{s.title}}</a>
+      </li>
     </ul>
   </nav>
-  <h1>Angular.js Scrollspy Example</h1>
-  <section ng-repeat="s in sections" id="section-1">
-    <h2>{{s.title}}</h2>
-    <p>{{s.body}}<p>
+  <h1>
+    Angular.js Scrollspy Example
+  </h1>
+  <section ng-repeat="s in sections" id="{{'section-' + $index}}">
+
+    <button type="button" class="btn btn-default btn-xs pull-right" ng-click="toggleEdit(s)">
+      <span class="glyphicon" ng-class="{'glyphicon-pencil': !s.editing, 'glyphicon-ok': s.editing}" aria-hidden="true"></span>
+    </button>
+
+    <h2 ng-if="!s.editing">{{s.title}}</h2>
+    <textarea ng-if="s.editing" ng-model="s.title" ng-change="sections.$save(s)" rows="1" class="form-control">
+    </textarea>
+
+    <p ng-if="!s.editing">{{s.body}}</p>
+    <textarea ng-if="s.editing" ng-model="s.body" ng-change="sections.$save(s)" rows="8" cols="40" class="form-control">
+    </textarea>
+
     <img src="http://lorempixel.com/1000/500/" alt="" />
-  </section>
-
-  <section name="section-2">
-    <h2>Section 2</h2>
-    <p>Bacon strip steak ground round, tongue pastrami short ribs pork chop venison turducken sausage sirloin. Flank chicken pork chop capicola turkey turducken cow pork loin biltong meatball drumstick pancetta filet mignon ground round fatback. Ham hock jerky short ribs brisket. Meatloaf shoulder pork chop capicola, sirloin swine pig pork. Jerky ribeye hamburger pork loin sirloin kevin bresaola boudin chuck flank. Ham hock pork belly chicken jerky rump bresaola.</p>
-  </section>
-
-  <section id="section-3">
-    <h2>Section 3</h2>
-
-    <p ng-hide="edit" ng-bind="text.$value" ng-click="edit = true"></p>
-
-    <textarea ng-change"text.$value.$save()" ng-show="edit" ng-model="text.$value" name="name" rows="10" cols="100"></textarea>
-  </section>
-
-
-  <section id="section-4">
-    <h2>Section 4</h2>
-    <img src="http://lorempixel.com/1000/600/" alt="" />
-
-    <p>Shoulder cow tenderloin chuck, pork chop jerky doner leberkas. Chuck sausage hamburger, kevin beef pork chop pork shoulder ground round ball tip turducken flank. Bresaola tri-tip meatloaf, salami venison tail pig shank shankle jowl sausage brisket cow biltong turducken. Swine turducken hamburger ball tip short loin prosciutto kevin jowl tri-tip. Doner meatloaf pork brisket.</p>
   </section>
   <footer>
     <button ng-click="toTheTop()">Take me back!</button> or <button ng-click="toSection3()">To section 3</button>

@@ -4,10 +4,9 @@ angular.module('angularfireCvApp')
 
     $scope.sections = $firebaseArray(Ref.child('sections'));
 
-    $scope.sections.$add({
-      title: "About me",
-      body: "Hello world"
-    });
+    $scope.toggleEdit = function(section) {
+      section.editing = !section.editing;
+    };
 
     $scope.toTheTop = function() {
       console.log($scope.sections);
