@@ -12,5 +12,6 @@ angular.module('angularfireCvApp', [
     'ngRoute',
     'firebase',
     'firebase.ref',
-    'firebase.auth'
+    'firebase.auth',
+    'duScroll'
   ]);

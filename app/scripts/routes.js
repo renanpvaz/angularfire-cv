@@ -70,6 +70,10 @@ angular.module('angularfireCvApp')
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/scroll', {
+        templateUrl: 'views/scroll-test.html',
+        controller: 'ScrollTestCtrl'
+      })
       .whenAuthenticated('/account', {
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
