@@ -87,11 +87,9 @@
     <textarea ng-if="s.editing" ng-model="s.title" ng-change="sections.$save(s)" rows="1" class="form-control">
     </textarea>
 
-    <p ng-if="!s.editing">{{s.body}}</p>
+    <p ng-if="!s.editing" markdown-to-html="s.body"></p>
     <textarea ng-if="s.editing" ng-model="s.body" ng-change="sections.$save(s)" rows="8" cols="40" class="form-control">
     </textarea>
-
-    <img src="http://lorempixel.com/1000/500/" alt="" />
   </section>
   <footer>
     <button ng-click="toTheTop()">Take me back!</button> or <button ng-click="toSection3()">To section 3</button>

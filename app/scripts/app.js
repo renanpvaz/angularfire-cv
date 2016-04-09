@@ -13,5 +13,7 @@ angular.module('angularfireCvApp', [
     'firebase',
     'firebase.ref',
     'firebase.auth',
-    'duScroll'
+    'duScroll',
+    'ngSanitize',
+    'ng-showdown'
   ]);

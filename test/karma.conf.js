@@ -27,6 +27,9 @@ module.exports = function(config) {
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-scroll/angular-scroll.js',
+      'bower_components/showdown/dist/showdown.js',
+      'bower_components/angular-sanitize/angular-sanitize.js',
+      'bower_components/ng-showdown/dist/ng-showdown.js',
       'bower_components/mockfirebase/browser/mockfirebase.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower

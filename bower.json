@@ -7,7 +7,9 @@
     "angularfire": "1.0.0",
     "bootstrap": "3.3.4",
     "angular-route": "^1.3.0",
-    "angular-scroll": "^1.0.0"
+    "angular-scroll": "^1.0.0",
+    "showdown": "^1.3.0",
+    "ng-showdown": "^1.1.0"
   },
   "devDependencies": {
     "mockfirebase": "0.11.0",
