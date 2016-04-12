@@ -72,7 +72,12 @@ angular.module('angularfireCvApp')
       })
       .when('/scroll', {
         templateUrl: 'views/scroll-test.html',
-        controller: 'ScrollTestCtrl'
+        controller: 'ScrollTestCtrl',
+        resolve: {
+          user: ['Auth', function(Auth) {
+            return Auth.$getAuth();
+          }]
+        }
       })
       .whenAuthenticated('/account', {
         templateUrl: 'views/account.html',

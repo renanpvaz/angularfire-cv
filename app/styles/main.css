@@ -9,6 +9,223 @@ body {
   padding: 0;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ebebeb;
+}
+body, button {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+h1 {
+  padding-top: 50px;
+}
+
+h1 {
+     word-wrap: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+     -o-hyphens: auto;
+     hyphens: auto;
+}
+
+img {
+  max-width: 100%;
+}
+nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
+}
+nav li, nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center
+}
+nav li, nav a {
+  display: inline-block;
+}
+nav a {
+  padding: 20px;
+  color: #333;
+}
+a:hover {
+  color: #fff;
+}
+
+a:hover, a:active, a, a:focus {
+  text-decoration: none;
+}
+
+.profile-info {
+  border-bottom: 3px solid rgba(204, 204, 204, 0.9);
+  padding-bottom: 20px;
+}
+
+.profile-info h1 {
+  position: absolute;
+  right: 20%;
+  font-size: 60px;
+  bottom: 70%;
+}
+
+.profile-info img {
+  max-width: 38%;
+}
+
+.wrap {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+section {
+  padding: 50px 0 30px 0;
+}
+footer {
+  text-align: center;
+}
+button {
+  font-size: 18px;
+  border: 0;
+  padding: 15px 30px;
+  background: #00AC7F;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* Sidebar */
+
+#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+  #sidebar-wrapper {
+    margin-left: -250px;
+    left: 250px;
+    width: 250px;
+    background: #CCC;
+    position: fixed;
+    height: 100%;
+    overflow-y: hidden;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+    font-size: 24px;
+  }
+
+  #page-content-wrapper {
+    width: 100%;
+  }
+
+  .sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding-top: 10px
+  }
+
+  .sidebar-nav li {
+    padding-bottom: 0;
+  }
+  /*.sidebar-nav li span {
+    text-align: center;
+    width: 50%;
+    font-size: 20px;
+  }*/
+
+  .sidebar-nav li {
+    position:relative; /* so that pseudoelements are positioned relatively to their "li"s*/
+    /* use padding-bottom instead of margin-bottom.*/
+    margin-bottom: 0; /* This overrides previously specified margin-bottom */
+    padding-bottom: 1em;
+}
+
+.section-bullet {
+    /* bullets */
+    position: absolute;
+    left: -24px;
+    content: '';
+    height: 0.7em;
+    width: .7em;
+    display: inline-block;
+    border: 2px solid #00ac7f;
+    border-radius: 1em;
+    margin-right: .5em;
+    top: 8px;
+    background-color: #cccccc;
+    z-index: 5;
+}
+
+.sidebar-nav li:hover span {
+  background-color: #00ac7f;
+}
+
+.sidebar-nav li:before {
+    content:"";
+    position: absolute;
+    left: -16px; /* adjust manually */
+    border-left: 1px solid black;
+    height: 100%;
+    width: 1px;
+}
+
+.sidebar-nav li a.active {
+  color: #00AC7F;
+}
+
+.sidebar-nav li a.active + .section-bullet {
+  background-color: #00AC7F;
+}
+
+.sidebar-nav li:first-child:before {
+   /* first li's line */
+   top: 6px; /* moves the line down so that it disappears under the bullet. Adjust manually */
+}
+
+.sidebar-nav li:last-child:before {
+    /* last li's line */
+   height: 6px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+}
+
+  @media (max-width:960px) {
+    #sidebar-wrapper {
+        width: 200px;
+    }
+  }
+
+@media (max-width:767px) {
+
+  #wrapper {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    left: 0;
+  }
+
+  #wrapper.active {
+    position: relative;
+    left: 250px;
+  }
+
+  #wrapper.active #sidebar-wrapper {
+    left: 250px;
+    width: 250px;
+    transition: all 0.4s ease 0s;
+  }
+
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

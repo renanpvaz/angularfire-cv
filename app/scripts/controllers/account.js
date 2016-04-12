@@ -8,9 +8,13 @@
  */
 angular.module('angularfireCvApp')
   .controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout) {
+    var profile = $firebaseObject(Ref.child('users/'+user.uid));
+
     $scope.user = user;
     $scope.logout = function() { Auth.$unauth(); };
-    $scope.messages = [];
-    var profile = $firebaseObject(Ref.child('users/'+user.uid));
+
+    profile.photo = user.google.profileImageURL;
+    profile.name = user.google.displayName;
     profile.$bindTo($scope, 'profile');
+    profile.$save();
   });
