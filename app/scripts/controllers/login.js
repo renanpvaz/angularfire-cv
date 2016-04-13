@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 /**
  * @ngdoc function
  * @name angularfireCvApp.controller:LoginCtrl
@@ -20,10 +20,9 @@ angular.module('angularfireCvApp')
 
     function redirect() {
       $location.path('/account');
-    }
+    };
 
     function showError(err) {
       $scope.err = err;
-    }
-
+    };
   });

@@ -1,34 +1,39 @@
-<div class="col-lg-11 col-lg-offset-1" class="wrap">
+<div class="col-lg-12" class="wrap">
   <div class="row">
     <div class="col-lg-12 profile-info">
       <h1>
-        {{user.google.displayName}}
+        {{vm.cvProfile.name}}
       </h1>
-
       <!-- <img class="img-responsive img-circle img-thumbnail" ng-src="{{user.google.profileImageURL}}" /> -->
     </div>
   </div>
 
-  <section ng-repeat="s in sections" id="{{'section-' + $index}}">
+  <section ng-repeat="s in vm.sections" id="{{'section-' + $index}}">
 
-    <button type="button" class="btn btn-default btn-xs pull-right" ng-click="toggleEdit(s)">
-      <span class="glyphicon" ng-class="{'glyphicon-pencil': !s.editing, 'glyphicon-ok': s.editing}" aria-hidden="true"></span>
-    </button>
+    <div ng-if="!vm.allowedForEditing || !s.editing">
+      <h2>
+        {{s.title}}
 
-    <div ng-if="!s.editing">
-      <h2>{{s.title}}</h2>
+        <span class="glyphicon glyphicon-pencil" ng-click="vm.toggleEdit(s)" ng-if="vm.allowedForEditing">
+        </span>
+      </h2>
       <p markdown-to-html="s.body"></p>
     </div>
 
-    <div ng-if="s.editing">
-      <textarea ng-model="s.title" ng-change="sections.$save(s)" rows="1" class="form-control">
+    <div ng-if="s.editing && vm.allowedForEditing">
+      <span class="glyphicon pull-right glyphicon-ok" ng-click="vm.toggleEdit(s)" >
+      </span>
+      <textarea ng-model="s.title" ng-change="vm.sections.$save(s)" rows="1" class="form-control section-edit">
       </textarea>
-      <textarea ng-model="s.body" ng-change="sections.$save(s)" rows="{{getNumberOfRows(s.body)}}" cols="40" class="form-control">
+      <textarea ng-model="s.body" ng-change="vm.sections.$save(s)" rows="8" cols="40" class="form-control section-edit">
       </textarea>
     </div>
 
+
+
   </section>
+
   <footer>
-    <button ng-click="toTheTop()">Take me back!</button> or <button ng-click="toSection3()">To section 3</button>
+    <button ng-click="vm.toTheTop()">Take me back!</button>
   </footer>
 </div>
