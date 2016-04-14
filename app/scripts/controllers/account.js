@@ -11,7 +11,6 @@ angular.module('angularfireCvApp')
     var profile = $firebaseObject(Ref.child('users/'+user.uid));
 
     $scope.user = user;
-    $scope.logout = function() { Auth.$unauth(); };
 
     profile.photo = user.google.profileImageURL;
     profile.name = user.google.displayName;

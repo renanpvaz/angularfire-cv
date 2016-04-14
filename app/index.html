@@ -20,10 +20,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div id="customBtn" class="customGPlusSignIn">
-      <span class="icon"></span>
-      <span class="buttonText">Sign in with Google</span>
-    </div>
+    <cv-sign-in-button></cv-sign-in-button>
 
     <div id="wrapper">
         <div id="sidebar-wrapper" ng-controller="SidebarCtrl">
@@ -88,12 +85,13 @@
         <script src="scripts/controllers/chat.js"></script>
         <script src="scripts/filters/reverse.js"></script>
         <script src="scripts/angularfire/auth.js"></script>
-        <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/account.js"></script>
         <script src="scripts/directives/ngShowAuth.js"></script>
         <script src="scripts/directives/ngHideAuth.js"></script>
         <script src="scripts/routes.js"></script>
         <script src="scripts/controllers/scrollTest.controller.js"></script>
+        <script src="scripts/angularfire/sign-in-button.directive.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

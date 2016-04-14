@@ -1,9 +1,9 @@
 (function() {
 
   angular
-  .module('angularfireCvApp')
-  .controller('ScrollTestCtrl', ScrollTestCtrl)
-  .value('duScrollOffset', 30);
+    .module('angularfireCvApp')
+    .controller('ScrollTestCtrl', ScrollTestCtrl)
+    .value('duScrollOffset', 30);
 
   ScrollTestCtrl.$inject = ['$document', 'sectionService', 'user', 'profileUid', 'Ref', '$firebaseObject'];
 
@@ -13,10 +13,6 @@
     vm.sections = sectionService.get();
     vm.allowedForEditing = profileUid === vm.user.uid;
     vm.cvProfile = $firebaseObject(Ref.child('users/google:110559871277426908377'));
-
-    // angular.element('#section-edit').click(function(event){
-    //     event.stopPropagation();
-    // });
 
     vm.toggleEdit = function(section) {
       if (vm.allowedForEditing) {
