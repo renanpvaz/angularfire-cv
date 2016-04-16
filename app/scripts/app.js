@@ -15,5 +15,7 @@ angular.module('angularfireCvApp', [
     'firebase.auth',
     'duScroll',
     'ngSanitize',
-    'ng-showdown'
+    'ng-showdown',
+    'ngAnimate',
+    'monospaced.elastic'
   ]);

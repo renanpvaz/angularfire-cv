@@ -13,7 +13,7 @@
 
   <section ng-repeat="s in vm.sections" id="{{'section-' + $index}}">
 
-    <div ng-if="!vm.allowedForEditing || !s.editing">
+    <div class="animate-if section-text" ng-if="!vm.allowedForEditing || !s.editing">
       <h2>
         {{s.title}}
 
@@ -23,12 +23,12 @@
       <p markdown-to-html="s.body"></p>
     </div>
 
-    <div ng-if="s.editing && vm.allowedForEditing">
+    <div ng-if="s.editing && vm.allowedForEditing" class="animate-if">
       <span class="glyphicon pull-right glyphicon-ok" ng-click="vm.toggleEdit(s)" >
       </span>
       <textarea ng-model="s.title" ng-change="vm.sections.$save(s)" rows="1" class="form-control section-edit">
       </textarea>
-      <textarea ng-model="s.body" ng-change="vm.sections.$save(s)" rows="8" cols="40" class="form-control section-edit">
+      <textarea ng-model="s.body" ng-change="vm.sections.$save(s)" rows="8" class="form-control section-edit msd-elastic: \n;">
       </textarea>
     </div>
 

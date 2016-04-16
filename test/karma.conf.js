@@ -30,6 +30,8 @@ module.exports = function(config) {
       'bower_components/showdown/dist/showdown.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/ng-showdown/dist/ng-showdown.js',
+      'bower_components/angular-animate/angular-animate.js',
+      'bower_components/angular-elastic/elastic.js',
       'bower_components/mockfirebase/browser/mockfirebase.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
