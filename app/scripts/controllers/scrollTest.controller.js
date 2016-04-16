@@ -5,14 +5,21 @@
     .controller('ScrollTestCtrl', ScrollTestCtrl)
     .value('duScrollOffset', 30);
 
-  ScrollTestCtrl.$inject = ['$document', 'sectionService', 'user', 'profileUid', 'Ref', '$firebaseObject'];
+  ScrollTestCtrl.$inject = ['$document', 'sections', 'user', 'profileUid', 'Ref', '$firebaseObject'];
 
-  function ScrollTestCtrl($document, sectionService, user, profileUid, Ref, $firebaseObject) {
+  function ScrollTestCtrl($document, sections, user, profileUid, Ref, $firebaseObject) {
     var vm = this;
     vm.user = user || {};
-    vm.sections = sectionService.get();
+    vm.sections = sections;
     vm.allowedForEditing = profileUid === vm.user.uid;
-    vm.cvProfile = $firebaseObject(Ref.child('users/google:110559871277426908377'));
+    vm.cvProfile = $firebaseObject(Ref.child('users/' + profileUid));
+    vm.loading = true;
+
+    Ref.on('value', function (snapshot) {
+      vm.loading = false;
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
 
     vm.toggleEdit = function(section) {
       if (vm.allowedForEditing) {

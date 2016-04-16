@@ -23,14 +23,7 @@
     <cv-sign-in-button></cv-sign-in-button>
 
     <div id="wrapper">
-        <div id="sidebar-wrapper" ng-controller="SidebarCtrl">
-            <ul class="sidebar-nav">
-              <li ng-repeat="s in sections">
-                <a ng-href="#section-{{$index}}" du-smooth-scroll du-scrollspy>{{s.title}}</a>
-                <span class="section-bullet"></span>
-              </li>
-            </ul>
-        </div>
+        <cv-sidebar></cv-sidebar>
         <div id="page-content-wrapper">
             <div class="page-content">
                   <div class="row" style="margin-right:0">
@@ -77,7 +70,6 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/section.service.js"></script>
-        <script src="scripts/controllers/sidebar.ctrl.js"></script>
         <script src="scripts/global-showdown-settings.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/angularfire/config.js"></script>
@@ -91,6 +83,7 @@
         <script src="scripts/routes.js"></script>
         <script src="scripts/controllers/scrollTest.controller.js"></script>
         <script src="scripts/angularfire/sign-in-button.directive.js"></script>
+        <script src="scripts/directives/sidebar.directive.js"></script>
 
         <!-- endbuild -->
 </body>

@@ -12,12 +12,11 @@
         templateUrl: 'scripts/angularfire/sign-in-button.html',
         controllerAs: 'vm',
         controller: function() {
-          console.log(Auth.$getAuth());
           var vm = this;
-          vm.btnText = 'Sign in with Google';
-
+          vm.btnText = Auth.$getAuth() === null ? 'Sign in with Google' : 'Logout';
 
           vm.logInOrOut = function() {
+            console.log('!!!');
             if(Auth.$getAuth()) {
               Auth.$unauth();
               vm.btnText = 'Sign in with Google';

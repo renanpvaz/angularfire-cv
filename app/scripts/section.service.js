@@ -2,14 +2,9 @@
 
   angular
     .module('angularfireCvApp')
-    .factory('sectionService', sectionService)
+    .factory('sections', sections);
 
-    function sectionService($firebaseArray, Ref) {
-      return {
-        get: function() {
-          return $firebaseArray(Ref.child('sections'));
-        }
-      };
+    function sections($firebaseArray, Ref) {
+      return $firebaseArray(Ref.child('sections'));
     };
-
 })();
