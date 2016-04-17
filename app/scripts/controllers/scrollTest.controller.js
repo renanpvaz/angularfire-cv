@@ -5,9 +5,9 @@
     .controller('ScrollTestCtrl', ScrollTestCtrl)
     .value('duScrollOffset', 30);
 
-  ScrollTestCtrl.$inject = ['$document', 'sections', 'user', 'profileUid', 'Ref', '$firebaseObject'];
+  ScrollTestCtrl.$inject = ['$document', 'sections', 'user', 'profileUid', 'Ref', '$firebaseObject', '$firebaseArray'];
 
-  function ScrollTestCtrl($document, sections, user, profileUid, Ref, $firebaseObject) {
+  function ScrollTestCtrl($document, sections, user, profileUid, Ref, $firebaseObject, $firebaseArray) {
     var vm = this;
     vm.user = user || {};
     vm.sections = sections;
@@ -20,6 +20,17 @@
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
+
+    vm.slider = {
+      options: {
+          translate: function(value) { return ''; },
+          showSelectionBar: true,
+          floor: 0,
+          ceil: 100,
+          step: 1,
+          readOnly: !vm.allowedForEditing
+      }
+  };
 
     vm.toggleEdit = function(section) {
       if (vm.allowedForEditing) {

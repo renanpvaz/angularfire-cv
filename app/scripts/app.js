@@ -17,5 +17,6 @@ angular.module('angularfireCvApp', [
     'ngSanitize',
     'ng-showdown',
     'ngAnimate',
-    'monospaced.elastic'
+    'monospaced.elastic',
+    'rzModule'
   ]);

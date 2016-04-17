@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <section ng-repeat="s in vm.sections" id="{{'section-' + $index}}">
+  <section ng-repeat="s in vm.sections" id="{{'section-' + $index}}" ng-class="{'col-sm-offset-1 inner-section': s.innerSection }">
 
     <div class="animate-if section-text" ng-if="!vm.allowedForEditing || !s.editing">
       <h2>
@@ -28,9 +28,25 @@
       </span>
       <textarea ng-model="s.title" ng-change="vm.sections.$save(s)" rows="1" class="form-control section-edit">
       </textarea>
-      <textarea ng-model="s.body" ng-change="vm.sections.$save(s)" rows="8" class="form-control section-edit msd-elastic: \n;">
+      <textarea ng-model="s.body" ng-change="vm.sections.$save(s)" rows="1" class="form-control section-edit msd-elastic: \n;">
       </textarea>
     </div>
+
+    <div ng-repeat="skill in s.skills" class="row" ng-class="{'viewing': !s.editing}">
+
+      <div class="col-sm-1">
+        <h5 ng-if="!skill.icon" >
+          {{skill.name}}
+        </h5>
+
+        <i ng-if="skill.icon" ng-class="skill.icon" class="colored"></i>
+      </div>
+
+      <rzslider rz-slider-read-only="s.editing && vm.allowedForEditing" ng-click="vm.sections.$save(s)" class="col-sm-8 skill-slider"
+        rz-slider-model="skill.value"
+        rz-slider-options="vm.slider.options"></rzslider>
+    </div>
+
 
   </section>
 

@@ -439,3 +439,55 @@ span.glyphicon.glyphicon-ok {
     transform: rotate(360deg);
   }
 }
+
+.skill-img {
+  padding-top: 9px;
+  display: block;
+  max-width: 80px;
+  max-height: 80px;
+};
+
+.skill-name {
+  width: 80px !important;
+};
+
+.row h3, .row img {
+  max-width: 80px;
+}
+
+.inner-section {
+  padding-top: 0;
+}
+
+.inner-section .row {
+  margin-top: 10px;
+}
+
+.inner-section h5, .inner-section i {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.inner-section i {
+  font-size: 50px
+}
+
+.inner-section h5 {
+  font-weight: bold;
+}
+
+.inner-section h2 {
+  font-size: 23px;
+  margin-bottom: 16px;
+}
+.inner-section .col-sm-1 {
+  padding-left: 0
+}
+
+.skill-slider, .inner-section .row {
+  margin-left: 10px
+}
+
+.viewing .rz-pointer {
+  display: none;
+}

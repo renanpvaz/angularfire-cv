@@ -32,6 +32,7 @@ module.exports = function(config) {
       'bower_components/ng-showdown/dist/ng-showdown.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-elastic/elastic.js',
+      'bower_components/angularjs-slider/dist/rzslider.js',
       'bower_components/mockfirebase/browser/mockfirebase.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
