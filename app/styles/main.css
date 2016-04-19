@@ -130,7 +130,7 @@ section {
 footer {
   text-align: center;
 }
-button {
+footer button {
   font-size: 18px;
   border: 0;
   padding: 15px 30px;
@@ -284,6 +284,8 @@ span.glyphicon.glyphicon-ok {
     }
     #customBtn:hover {
       cursor: pointer;
+      background-color: #0f97f9;
+      color: #ebebeb;
     }
     span.label {
       font-family: serif;

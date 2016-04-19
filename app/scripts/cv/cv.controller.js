@@ -1,29 +1,29 @@
 (function() {
+  'use strict';
 
   angular
     .module('angularfireCvApp')
-    .controller('ScrollTestCtrl', ScrollTestCtrl)
-    .value('duScrollOffset', 30);
+    .controller('ScrollTestCtrl', ScrollTestCtrl);
 
-  ScrollTestCtrl.$inject = ['$document', 'sections', 'user', 'profileUid', 'Ref', '$firebaseObject', '$firebaseArray'];
+  ScrollTestCtrl.$inject = ['$document', 'user', 'profileUid', 'Ref', 'cvService'];
 
-  function ScrollTestCtrl($document, sections, user, profileUid, Ref, $firebaseObject, $firebaseArray) {
+  function ScrollTestCtrl($document, user, profileUid, Ref, cvService) {
     var vm = this;
     vm.user = user || {};
-    vm.sections = sections;
+    vm.sections = cvService.sections;
     vm.allowedForEditing = profileUid === vm.user.uid;
-    vm.cvProfile = $firebaseObject(Ref.child('users/' + profileUid));
+    vm.cvProfile = cvService.profile;
     vm.loading = true;
 
-    Ref.on('value', function (snapshot) {
+    Ref.on('value', function () {
       vm.loading = false;
     }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code);
+      console.log('The read failed: ' + errorObject.code);
     });
 
     vm.slider = {
       options: {
-          translate: function(value) { return ''; },
+          translate: function() { return ''; },
           showSelectionBar: true,
           floor: 0,
           ceil: 100,
@@ -36,13 +36,13 @@
       if (vm.allowedForEditing) {
         section.editing = !section.editing;
         vm.sections.$save(section);
-      };
+      }
     };
 
     vm.toTheTop = function() {
       $document.scrollTopAnimated(0, 5000).then(function() {
-        console && console.log('You just scrolled to the top!');
+        console.log('You just scrolled to the top!');
       });
     };
-  };
-})()
+  }
+})();

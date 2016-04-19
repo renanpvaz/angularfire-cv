@@ -1,36 +1,44 @@
-<div class="col-lg-12" class="wrap">
-
-  <div class="row">
+<div>
+  <header class="row">
     <div class="col-lg-12 profile-info">
       <h1>
         {{vm.cvProfile.name}}
       </h1>
-      <div ng-show="vm.loading" class="loader" id="floatingCirclesG">
-      </div>
+      <figure ng-show="vm.loading" class="loader" id="floatingCirclesG">
+      </figure>
       <!-- <img class="img-responsive img-circle img-thumbnail" ng-src="{{user.google.profileImageURL}}" /> -->
     </div>
-  </div>
+  </header>
 
   <section ng-repeat="s in vm.sections" id="{{'section-' + $index}}" ng-class="{'col-sm-offset-1 inner-section': s.innerSection }">
 
     <div class="animate-if section-text" ng-if="!vm.allowedForEditing || !s.editing">
-      <h2>
-        {{s.title}}
-
-        <span class="glyphicon glyphicon-pencil" ng-click="vm.toggleEdit(s)" ng-if="vm.allowedForEditing">
-        </span>
-      </h2>
-      <p markdown-to-html="s.body"></p>
+      <header>
+        <h2>
+          {{s.title}}
+          <span class="glyphicon glyphicon-pencil" ng-click="vm.toggleEdit(s)" ng-if="vm.allowedForEditing">
+          </span>
+        </h2>
+      </header>
+      <article>
+        <p markdown-to-html="s.body"></p>
+      </article>
     </div>
 
-    <div ng-if="s.editing && vm.allowedForEditing" class="animate-if">
-      <span class="glyphicon pull-right glyphicon-ok" ng-click="vm.toggleEdit(s)" >
+    <fieldset ng-if="s.editing && vm.allowedForEditing" class="animate-if">
+
+      <span class="glyphicon pull-right glyphicon-ok" ng-click="vm.toggleEdit(s)">
       </span>
-      <textarea ng-model="s.title" ng-change="vm.sections.$save(s)" rows="1" class="form-control section-edit">
+
+      <textarea class="form-control section-edit"
+        ng-model="s.title" ng-change="vm.sections.$save(s)">
       </textarea>
-      <textarea ng-model="s.body" ng-change="vm.sections.$save(s)" rows="1" class="form-control section-edit msd-elastic: \n;">
+
+      <textarea class="form-control section-edit msd-elastic: \n;"
+        ng-model="s.body" ng-change="vm.sections.$save(s)">
       </textarea>
-    </div>
+
+    </fieldset>
 
     <div ng-repeat="skill in s.skills" class="row" ng-class="{'viewing': !s.editing}">
 
@@ -38,15 +46,18 @@
         <h5 ng-if="!skill.icon" >
           {{skill.name}}
         </h5>
-
-        <i ng-if="skill.icon" ng-class="skill.icon" class="colored"></i>
+        <figure>
+          <i ng-if="skill.icon" ng-class="skill.icon" class="colored"></i>
+        </figure>
       </div>
 
-      <rzslider rz-slider-read-only="s.editing && vm.allowedForEditing" ng-click="vm.sections.$save(s)" class="col-sm-8 skill-slider"
+      <rzslider ng-click="vm.sections.$save(s)"
+        rz-slider-read-only="s.editing && vm.allowedForEditing"
+        class="col-sm-8 skill-slider"
         rz-slider-model="skill.value"
-        rz-slider-options="vm.slider.options"></rzslider>
+        rz-slider-options="vm.slider.options">
+      </rzslider>
     </div>
-
 
   </section>
 

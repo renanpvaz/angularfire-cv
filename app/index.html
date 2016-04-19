@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -18,43 +18,34 @@
     <!-- endbuild -->
   </head>
   <body ng-app="angularfireCvApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     <tag spellcheck="false"/>
-
     <cv-sign-in-button></cv-sign-in-button>
 
     <div id="wrapper">
-        <cv-sidebar></cv-sidebar>
-        <div id="page-content-wrapper">
+      <cv-sidebar></cv-sidebar>
+        <main id="page-content-wrapper">
             <div class="page-content">
                   <div class="row" style="margin-right:0">
                       <div class="col-md-12">
                           <div ng-view=""></div>
-
-
                       </div>
                   </div>
             </div>
-        </div>
+        </main>
     </div>
-
-    <div class="footer">
-      <div class="container">
-      </div>
-    </div>
-
+    <footer class="footer">
+      <div class="container"></div>
+    </footer>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-scroll/angular-scroll.js"></script>
     <script src="bower_components/showdown/dist/showdown.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -67,17 +58,18 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/section.service.js"></script>
-        <script src="scripts/global-showdown-settings.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+
+        <script src="scripts/cv/cv.controller.js"></script>
+        <script src="scripts/cv/cv.service.js"></script>
+
+        <script src="scripts/config/routes.js"></script>
+        <script src="scripts/config/showdown.config.js"></script>
+
         <script src="scripts/angularfire/config.js"></script>
         <script src="scripts/angularfire/firebase.ref.js"></script>
-        <script src="scripts/controllers/chat.js"></script>
         <script src="scripts/angularfire/auth.js"></script>
-        <script src="scripts/controllers/account.js"></script>
-        <script src="scripts/routes.js"></script>
-        <script src="scripts/controllers/scrollTest.controller.js"></script>
-        <script src="scripts/angularfire/sign-in-button.directive.js"></script>
+
+        <script src="scripts/sign-in/sign-in-button.directive.js"></script>
         <script src="scripts/sidebar/sidebar.directive.js"></script>
 
         <!-- endbuild -->

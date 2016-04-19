@@ -5,17 +5,17 @@
       .module('angularfireCvApp')
       .directive('cvSidebar', sideBar);
 
-      sideBar.$inject = ['sections'];
+      sideBar.$inject = ['cvService'];
 
-      function sideBar(sections) {
+      function sideBar(cvService) {
         return {
           templateUrl: 'scripts/sidebar/sidebar.directive.html',
           restrict: 'E',
           scope: {},
           controller: function() {
-            this.sections = sections;
+            this.sections = cvService.sections;
           },
           controllerAs: 'vm'
-        }
-      };
+        };
+      }
 })();
