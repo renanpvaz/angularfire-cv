@@ -9,7 +9,7 @@
 
       function sideBar(sections) {
         return {
-          templateUrl: 'scripts/directives/sidebar.directive.html',
+          templateUrl: 'scripts/sidebar/sidebar.directive.html',
           restrict: 'E',
           scope: {},
           controller: function() {
