@@ -10,10 +10,14 @@
   function ScrollTestCtrl($document, user, profileUid, Ref, cvService) {
     var vm = this;
     vm.user = user || {};
-    vm.sections = cvService.sections;
     vm.allowedForEditing = profileUid === vm.user.uid;
     vm.cvProfile = cvService.profile;
     vm.loading = true;
+    vm.sections = cvService.sections;
+
+    vm.sections.sort(function(first, next) {
+      return first.position > next.position;
+    });
 
     Ref.on('value', function () {
       vm.loading = false;

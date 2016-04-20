@@ -1,0 +1,1 @@
+<div id="sidebar-wrapper"> <ul class="sidebar-nav"> <li ng-repeat="s in vm.sections | orderBy: 'position'" ng-class="{'two-line-title': vm.titleBreaksLine(s.title)}"> <a ng-href="#section-{{$index}}" du-smooth-scroll du-scrollspy>{{s.title}}</a> <span class="section-bullet"></span> </li> </ul> </div>

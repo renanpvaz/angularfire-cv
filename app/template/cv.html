@@ -10,7 +10,7 @@
     </div>
   </header>
 
-  <section ng-repeat="s in vm.sections" id="{{'section-' + $index}}" ng-class="{'col-sm-offset-1 inner-section': s.innerSection }">
+  <section ng-repeat="s in vm.sections | orderBy: 'position'" id="{{'section-' + $index}}" ng-class="{'col-sm-offset-1 inner-section': s.innerSection }">
 
     <div class="animate-if section-text" ng-if="!vm.allowedForEditing || !s.editing">
       <header>

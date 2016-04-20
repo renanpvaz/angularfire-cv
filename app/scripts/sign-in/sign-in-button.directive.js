@@ -10,7 +10,7 @@
     function signInButton(Auth, $location, $route) {
       return {
         restrict: 'E',
-        templateUrl: 'scripts/sign-in/sign-in-button.html',
+        templateUrl: 'template/sign-in-button.html',
         controllerAs: 'vm',
         controller: function() {
           var vm = this;

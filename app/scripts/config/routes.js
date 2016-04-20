@@ -19,7 +19,7 @@ angular
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/cv.html',
+        templateUrl: 'template/cv.html',
         controller: 'ScrollTestCtrl',
         controllerAs: 'vm',
         resolve: {

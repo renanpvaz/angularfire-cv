@@ -71,6 +71,11 @@ h1 {
 img {
   max-width: 100%;
 }
+
+section {
+  font-size: 19px;
+}
+
 nav {
   position: fixed;
   z-index: 1;
@@ -226,6 +231,10 @@ span.glyphicon.glyphicon-ok {
   top: 21px;
 }
 
+.sidebar-nav li.two-line-title:before {
+  height: 82%;
+}
+
 .sidebar-nav li a.active {
   color: #F5BE58;
 }
@@ -281,6 +290,7 @@ span.glyphicon.glyphicon-ok {
       color: #0f97f9;
       padding: 6px 15px;
       border: 1px solid #0f97f9;
+      background-color: #ebebeb;
     }
     #customBtn:hover {
       cursor: pointer;
