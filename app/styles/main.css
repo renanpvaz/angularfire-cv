@@ -6,23 +6,30 @@
 }
 
 body {
-  padding: 0;
+  background-attachment: fixed;
+  overflow: hidden;
+  background: #27272b;
+  background-color: #27272B;
+  background-image: url("http://meteoric.github.io/images/nodes.png");
+  background-repeat: no-repeat;
+  color: #999999;
+  background-position: bottom center;
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  background: #ebebeb;
+  height: 100%;
 }
 body, button {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 h1 {
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
-h2 span{
-  color: #F5BE58;
+h2 {
+  color: #de4f4f;
 }
 
 .animate-if.ng-enter {
@@ -99,11 +106,11 @@ nav a {
   color: #E3E0B3;
 }
 a:hover {
-  color: #F5BE58;
+  color: #de4f4f;
 }
 
 a, a:active, a:focus {
-  color: #E3E0B3;
+  color: #eeeeee;
 }
 
 a:hover, a:active, a, a:focus {
@@ -111,12 +118,13 @@ a:hover, a:active, a, a:focus {
 }
 
 .profile-info {
-  border-bottom: 3px solid #F5BE58;
-  padding-bottom: 20px;
+  border-bottom: 3px solid #de4f4f;
+  padding-bottom: 0;
 }
 
 .profile-info h1 {
   font-size: 60px;
+  color: #de4f4f;
 }
 
 .profile-info img {
@@ -130,18 +138,7 @@ a:hover, a:active, a, a:focus {
   padding: 50px 20px;
 }
 section {
-  padding: 50px 0 30px 0;
-}
-footer {
-  text-align: center;
-}
-footer button {
-  font-size: 18px;
-  border: 0;
-  padding: 15px 30px;
-  background: #F5BE58;
-  color: #fff;
-  cursor: pointer;
+  padding: 12px 0 30px 0;
 }
 
 h2 span {
@@ -149,7 +146,7 @@ h2 span {
 }
 
 span.glyphicon:hover {
-  color: #F5BE58;
+  color: #de4f4f;
   cursor: pointer;
 }
 
@@ -175,10 +172,8 @@ span.glyphicon.glyphicon-ok {
     z-index: 1000;
     transition: all 0.4s ease 0s;
     font-size: 21px;
-    background: linear-gradient(174deg,rgba(75,177,250,0) 0,rgba(75,177,250,0) 50%,rgba(75,177,250,.6) 90%,#4bb1fa 100%),#045e9e url(https://www.firebase.com/resources/images/website/backgrounds/krisskross_v2.png) center center repeat;
     background-size: 500px 1000px;
-  }
-
+}
   #page-content-wrapper {
     width: 100%;
   }
@@ -197,10 +192,10 @@ span.glyphicon.glyphicon-ok {
   }
 
   .sidebar-nav li {
-    position:relative; /* so that pseudoelements are positioned relatively to their "li"s*/
-    /* use padding-bottom instead of margin-bottom.*/
-    margin-bottom: 0; /* This overrides previously specified margin-bottom */
+    position:relative;
+    margin-bottom: 0;
     padding-bottom: 1em;
+    cursor: pointer;
 }
 
 .section-bullet {
@@ -219,16 +214,17 @@ span.glyphicon.glyphicon-ok {
 
 .sidebar-nav li:hover span {
   background-color: #E3E0B3;
+
 }
 
 .sidebar-nav li:before {
   content: "";
-  position: absolute;
-  left: -17px;
-  border-left: 1px solid #F5BE58;
-  height: 72%;
-  width: 1px;
-  top: 21px;
+      position: absolute;
+      left: -17px;
+      border-left: 1px solid #de4f4f;
+      height: 72%;
+      width: 1px;
+      top: 21px;
 }
 
 .sidebar-nav li.two-line-title:before {
@@ -236,7 +232,7 @@ span.glyphicon.glyphicon-ok {
 }
 
 .sidebar-nav li a.active {
-  color: #F5BE58;
+  color: #de4f4f;
 }
 
 .sidebar-nav li a.active + .section-bullet {
@@ -244,13 +240,11 @@ span.glyphicon.glyphicon-ok {
 }
 
 .sidebar-nav li:first-child:before {
-   /* first li's line */
-   top: 22px; /* moves the line down so that it disappears under the bullet. Adjust manually */
+   top: 22px;
 }
 
 .sidebar-nav li:last-child:before {
-    /* last li's line */
-   height: 6px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+   height: 6px;
 }
 
 @media (max-width:767px) {
@@ -276,38 +270,45 @@ span.glyphicon.glyphicon-ok {
 
 }
 
-/* Sign in button */
+blockquote {
+  border: none;
+}
+
+.ease {
+  transition: all 0.4s ease 0s;
+}
+
+#loggedUser {
+  position: absolute;
+  right: 14px;
+  top: 48px;
+}
 
 #customBtn {
-      display: inline-block;
-      border-radius: 5px;
-      box-shadow: 1px 1px 1px grey;
-      white-space: nowrap;
-      position: absolute;
-      margin: 10px;
-      right: 0;
-      z-index: 5;
-      color: #0f97f9;
-      padding: 6px 15px;
-      border: 1px solid #0f97f9;
-      background-color: #ebebeb;
-    }
+  display: inline-block;
+  border-radius: 5px;
+  white-space: nowrap;
+  position: absolute;
+  margin: 10px;
+  right: 0;
+  z-index: 5;
+  padding: 6px 15px;
+  border: 1px solid #de4f4f;
+  color: #de4f4f;
+  background-color: #27272b;
+}
+
+
     #customBtn:hover {
       cursor: pointer;
-      background-color: #0f97f9;
-      color: #ebebeb;
+      background-color: #de4f4f;
+      color: #27272b;
     }
     span.label {
       font-family: serif;
       font-weight: normal;
     }
-    span.icon {
-      background: url('https://google-developers.appspot.com/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
-      display: inline-block;
-      vertical-align: middle;
-      width: 42px;
-      height: 42px;
-    }
+
     span.buttonText {
       display: inline-block;
       vertical-align: middle;
@@ -323,12 +324,10 @@ span.glyphicon.glyphicon-ok {
   padding-right: 15px;
 }
 
-/* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 }
-/* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
@@ -336,7 +335,6 @@ span.glyphicon.glyphicon-ok {
   padding-bottom: 19px;
 }
 
-/* Custom page footer */
 .footer {
   padding-top: 19px;
   color: #777;
@@ -346,45 +344,19 @@ span.glyphicon.glyphicon-ok {
 .container-narrow > hr {
   margin: 30px 0;
 }
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
   }
 
-  /* Remove the padding we set earlier */
   .header,
   .marketing,
   .footer {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
   .header {
     margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
   }
 }
 
@@ -419,7 +391,7 @@ span.glyphicon.glyphicon-ok {
   content: '';
 }
 .loader:after {
-  background: #EBEBEB;
+  background: #27272b;
   width: 75%;
   height: 75%;
   border-radius: 50%;
@@ -475,25 +447,24 @@ span.glyphicon.glyphicon-ok {
   margin-top: 10px;
 }
 
-.inner-section h5, .inner-section i {
+section h5, section i {
   text-align: left;
   margin-top: 30px;
 }
 
-.inner-section i {
+section i {
   font-size: 50px
 }
 
-.inner-section h5 {
+section h5 {
   font-weight: bold;
 }
 
-.inner-section h2 {
-  font-size: 23px;
-  margin-bottom: 16px;
+i.devicon-github-plain.colored:before:hover {
+  color: #eeeecf;
 }
-.inner-section .col-sm-1 {
-  padding-left: 0
+.devicon-github-plain.colored:before {
+  color: #de4f4f;
 }
 
 .skill-slider, .inner-section .row {
@@ -502,4 +473,8 @@ span.glyphicon.glyphicon-ok {
 
 .viewing .rz-pointer {
   display: none;
+}
+
+rzslider .rz-bar.rz-selection {
+    background: #de4f4f;
 }

@@ -15,6 +15,15 @@
           controller: function() {
             this.sections = cvService.sections;
 
+            this.togglePosition = function(section) {
+              this.sections.forEach(function(sec) {
+                if(sec !== section)
+                  sec.active = false;
+              });
+
+              section.active = true;
+            };
+
             this.titleBreaksLine = function(title) {
               return title.length > 13;
             };

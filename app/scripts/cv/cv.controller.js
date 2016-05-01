@@ -15,11 +15,16 @@
     vm.loading = true;
     vm.sections = cvService.sections;
 
-    vm.sections.sort(function(first, next) {
-      return first.position > next.position;
-    });
+    function normalize() {
 
-    Ref.on('value', function () {
+    };
+
+    Ref.child('sections').on('value', function(snapshot) {
+      vm.sections.forEach(
+        function(section) {
+          if(section.position !== 1) section.active = false;
+          vm.sections.$save(section);
+      });
       vm.loading = false;
     }, function (errorObject) {
       console.log('The read failed: ' + errorObject.code);
@@ -35,6 +40,8 @@
           readOnly: !vm.allowedForEditing
       }
   };
+
+
 
     vm.toggleEdit = function(section) {
       if (vm.allowedForEditing) {

@@ -14,16 +14,20 @@
         controllerAs: 'vm',
         controller: function() {
           var vm = this;
-          vm.btnText = Auth.$getAuth() === null ? 'Sign in with Google' : 'Logout';
+
+          vm.user = Auth.$getAuth();
+          vm.btnText = !vm.user ? 'Sign in with Google' : 'Logout';
 
           vm.logInOrOut = function() {
-            if(Auth.$getAuth()) {
+            if(vm.user) {
               Auth.$unauth();
               vm.btnText = 'Sign in with Google';
               $route.reload();
+              vm.user = {};
             }
             else {
-              Auth.$authWithOAuthPopup('google', {rememberMe: true}).then(redirect, showError);
+              Auth.$authWithOAuthPopup('google', {rememberMe: true})
+                .then(redirect, showError);
             }
           };
 

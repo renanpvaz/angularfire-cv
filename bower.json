@@ -20,5 +20,8 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "angularfireCvApp"
+  "moduleName": "angularfireCvApp",
+  "resolutions": {
+    "angular": "1.5.5"
+  }
 }

@@ -1,3 +1,4 @@
-<button id="customBtn" class="customGPlusSignIn" ng-click="vm.logInOrOut()">
+<button id="customBtn" class="ease" ng-click="vm.logInOrOut()">
   <span class="buttonText" ng-bind="vm.btnText"></span>
 </button>
+<span id="loggedUser">{{vm.user.google.cachedUserProfile.name}}</span>

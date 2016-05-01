@@ -10,7 +10,7 @@
     </div>
   </header>
 
-  <section ng-repeat="s in vm.sections | orderBy: 'position'" id="{{'section-' + $index}}" ng-class="{'col-sm-offset-1 inner-section': s.innerSection }">
+  <section ng-show="s.active" ng-repeat="s in vm.sections | orderBy: 'position'">
 
     <div class="animate-if section-text" ng-if="!vm.allowedForEditing || !s.editing">
       <header>
@@ -47,7 +47,10 @@
           {{skill.name}}
         </h5>
         <figure>
-          <i ng-if="skill.icon" ng-class="skill.icon" class="colored"></i>
+          <i ng-if="skill.icon" class="{{skill.icon}} ease"
+             ng-class="{'colored': hover}"
+             ng-mouseenter="hover = true"
+             ng-mouseleave="hover = false"></i>
         </figure>
       </div>
 
@@ -60,8 +63,4 @@
     </div>
 
   </section>
-
-  <footer>
-    <button ng-click="vm.toTheTop()">Take me back!</button>
-  </footer>
 </div>
