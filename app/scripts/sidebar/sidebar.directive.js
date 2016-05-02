@@ -13,6 +13,7 @@
           restrict: 'E',
           scope: {},
           controller: function() {
+            this.open = false;
             this.sections = cvService.sections;
 
             this.togglePosition = function(section) {

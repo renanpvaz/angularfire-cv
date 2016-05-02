@@ -1,7 +1,8 @@
-<div id="sidebar-wrapper">
+<span id="sidebar-toggle" ng-click="vm.open = !vm.open;" class="glyphicon glyphicon-th-list"></span>
+<div id="sidebar-wrapper" ng-class="{'open': vm.open}" ng-mouseleave="vm.open = false">
   <ul class="sidebar-nav">
     <li ng-repeat="s in vm.sections | orderBy: s.position" ng-click="vm.togglePosition(s)" ng-class="{'two-line-title': vm.titleBreaksLine(s.title)}">
-      <a>{{s.title}}</a>
+      <a ng-class="{'active': s.active}">{{s.title}}</a>
       <span class="section-bullet"></span>
     </li>
   </ul>

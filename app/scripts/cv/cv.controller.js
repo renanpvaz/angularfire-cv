@@ -15,20 +15,25 @@
     vm.loading = true;
     vm.sections = cvService.sections;
 
-    function normalize() {
+    vm.save = function(section, keepActive) {
+      keepActive = keepActive || section.position === 1;
 
-    };
+      if(!keepActive)
+        section.active = false;
+
+      vm.sections.$save(section);
+    }
 
     Ref.child('sections').on('value', function(snapshot) {
       vm.sections.forEach(
         function(section) {
           if(section.position !== 1) section.active = false;
-          vm.sections.$save(section);
+          vm.save(section);
       });
       vm.loading = false;
     }, function (errorObject) {
       console.log('The read failed: ' + errorObject.code);
-    });
+    })
 
     vm.slider = {
       options: {
@@ -39,21 +44,13 @@
           step: 1,
           readOnly: !vm.allowedForEditing
       }
-  };
-
-
+  }
 
     vm.toggleEdit = function(section) {
       if (vm.allowedForEditing) {
         section.editing = !section.editing;
-        vm.sections.$save(section);
+        vm.save(section);
       }
-    };
-
-    vm.toTheTop = function() {
-      $document.scrollTopAnimated(0, 5000).then(function() {
-        console.log('You just scrolled to the top!');
-      });
     };
   }
 })();
