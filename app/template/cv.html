@@ -4,13 +4,11 @@
       <h1>
         {{vm.cvProfile.name}}
       </h1>
-      <figure ng-show="vm.loading" class="loader" id="floatingCirclesG">
-      </figure>
-      <!-- <img class="img-responsive img-circle img-thumbnail" ng-src="{{user.google.profileImageURL}}" /> -->
+      <figure ng-show="vm.loading" class="loader" id="floatingCirclesG"></figure>
     </div>
   </header>
 
-  <section ng-show="s.active" ng-repeat="s in vm.sections | orderBy: 'position'">
+  <section ng-show="vm.active === s.$id" ng-repeat="s in vm.sections | orderBy: 'position'">
 
     <div class="animate-if section-text" ng-if="!vm.allowedForEditing || !s.editing">
       <header>
@@ -22,6 +20,12 @@
       </header>
       <article>
         <p markdown-to-html="s.body"></p>
+        <figure ng-repeat="figure in s.figures">
+          <i class="colored ease"
+            title="{{figure.title || vm.capitalize(figure.class)}}"
+            ng-class="'devicon-' + figure.class + '-plain' + (figure.wordmark ? '-wordmark' : '')">
+          </i>
+        </figure>
       </article>
     </div>
 
@@ -39,20 +43,14 @@
       </textarea>
 
     </fieldset>
-
+<!--
     <div ng-repeat="skill in s.skills" class="row" ng-class="{'viewing': !s.editing}">
 
       <div class="col-xs-1">
         <h5 ng-if="!skill.icon" >
           {{skill.name}}
         </h5>
-        <figure>
-          <i title="{{skill.name}}" class="{{skill.icon}} ease"
-             ng-if="skill.icon"
-             ng-class="{'colored': hover}"
-             ng-mouseenter="hover = true"
-             ng-mouseleave="hover = false"></i>
-        </figure>
+
       </div>
 
       <rzslider ng-click="vm.save(s, true)"
@@ -61,7 +59,7 @@
         rz-slider-model="skill.value"
         rz-slider-options="vm.slider.options">
       </rzslider>
-    </div>
+    </div> -->
 
   </section>
 </div>

@@ -5,27 +5,27 @@
       .module('angularfireCvApp')
       .directive('cvSidebar', sideBar);
 
-      sideBar.$inject = ['cvService'];
+      sideBar.$inject = ['cvService', '$rootScope'];
 
-      function sideBar(cvService) {
+      function sideBar(cvService, $rootScope) {
         return {
           templateUrl: 'template/sidebar.directive.html',
           restrict: 'E',
           scope: {},
           controller: function() {
-            this.open = false;
-            this.sections = cvService.sections;
+            var vm = this;
 
-            this.togglePosition = function(section) {
-              this.sections.forEach(function(sec) {
-                if(sec !== section)
-                  sec.active = false;
+            vm.open = false;
+            vm.sections = cvService.sections('renan')
+              .sort(function(left, right){
+                return left.position > right.position;
               });
 
-              section.active = true;
+            vm.togglePosition = function(section) {
+              $rootScope.$broadcast('activeSectionToggle', { id: section.$id });
             };
 
-            this.titleBreaksLine = function(title) {
+            vm.titleBreaksLine = function(title) {
               return title.length > 13;
             };
           },

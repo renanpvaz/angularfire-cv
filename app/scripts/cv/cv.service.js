@@ -5,12 +5,18 @@
     .module('angularfireCvApp')
     .factory('cvService', cvService);
 
-    cvService.$inject = ['$firebaseObject', '$firebaseArray', 'Ref', 'profileUid'];
+    cvService.$inject = ['$firebaseObject', '$firebaseArray', 'Ref'];
 
-    function cvService($firebaseObject, $firebaseArray, Ref, profileUid ) {
+    function cvService($firebaseObject, $firebaseArray, Ref) {
+      var base = 'cv/';
+
       return {
-        sections: $firebaseArray(Ref.child('sections')),
-        profile: $firebaseObject(Ref.child('users/' + profileUid))
+        sections: function(name) {
+          return $firebaseArray(Ref.child(base + name + '/sections'))
+        },
+        profile: function(name) {
+            return $firebaseObject(Ref.child(base + name + '/profile'));
+        }
       };
     }
 })();

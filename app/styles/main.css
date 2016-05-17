@@ -16,6 +16,20 @@ body {
   background-position: bottom center;
 }
 
+[class*=" devicon-"], [class^=devicon-] {
+    font-family: devicon;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    padding-left: 10px;
+    float: left;
+    font-size: 100px
+  }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -271,6 +285,10 @@ span.glyphicon.glyphicon-ok {
 }
 
 @media (max-width:767px) {
+
+  [class*=" devicon-"], [class^=devicon-] {
+      font-size: 71px
+  }
 
   #sidebar-toggle {
     display: block;
