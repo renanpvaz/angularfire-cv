@@ -16,7 +16,7 @@ angular
 
   }])
 
-  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/cv/renan', {
         templateUrl: 'template/cv.html',
@@ -37,7 +37,7 @@ angular
             return Auth.$getAuth();
           }]
         }
-      })
+      });
   }])
 
   .run(['$rootScope', '$location', 'Auth', 'SECURED_ROUTES', 'loginRedirectPath',

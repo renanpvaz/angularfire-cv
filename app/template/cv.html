@@ -7,9 +7,7 @@
       <figure ng-show="vm.loading" class="loader" id="floatingCirclesG"></figure>
     </div>
   </header>
-
   <section ng-show="vm.active === s.$id" ng-repeat="s in vm.sections | orderBy: 'position'">
-
     <div class="animate-if section-text" ng-if="!vm.allowedForEditing || !s.editing">
       <header>
         <h2>
@@ -19,7 +17,7 @@
         </h2>
       </header>
       <article>
-        <p markdown-to-html="s.body"></p>
+        <p markdown-to-html="s.body"></p> <!-- TODO: use contenteditable="true" -->
         <figure ng-repeat="figure in s.figures">
           <i class="colored ease"
             title="{{figure.title || vm.capitalize(figure.class)}}"
@@ -28,38 +26,15 @@
         </figure>
       </article>
     </div>
-
     <fieldset ng-if="s.editing && vm.allowedForEditing" class="animate-if">
-
       <span class="glyphicon pull-right glyphicon-ok" ng-click="vm.toggleEdit(s)">
       </span>
-
       <textarea class="form-control section-edit"
         ng-model="s.title" ng-change="vm.save(s)">
       </textarea>
-
       <textarea class="form-control section-edit msd-elastic: \n;"
         ng-model="s.body" ng-change="vm.save(s)">
       </textarea>
-
     </fieldset>
-<!--
-    <div ng-repeat="skill in s.skills" class="row" ng-class="{'viewing': !s.editing}">
-
-      <div class="col-xs-1">
-        <h5 ng-if="!skill.icon" >
-          {{skill.name}}
-        </h5>
-
-      </div>
-
-      <rzslider ng-click="vm.save(s, true)"
-        rz-slider-read-only="s.editing && vm.allowedForEditing"
-        class="col-xs-7 skill-slider"
-        rz-slider-model="skill.value"
-        rz-slider-options="vm.slider.options">
-      </rzslider>
-    </div> -->
-
   </section>
 </div>

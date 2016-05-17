@@ -12,10 +12,10 @@
 
       return {
         sections: function(name) {
-          return $firebaseArray(Ref.child(base + name + '/sections'))
+          return $firebaseArray(Ref.child(base + name + '/sections').orderByChild('position'));
         },
         profile: function(name) {
-            return $firebaseObject(Ref.child(base + name + '/profile'));
+          return $firebaseObject(Ref.child(base + name + '/profile'));
         }
       };
     }
