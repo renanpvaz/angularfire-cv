@@ -186,7 +186,6 @@ span.glyphicon.glyphicon-ok {
     z-index: 1000;
     transition: all 0.4s ease 0s;
     font-size: 21px;
-    background-size: 500px 1000px;
 }
   #page-content-wrapper {
     width: 100%;
@@ -404,6 +403,68 @@ span.buttonText {
 .container-narrow > hr {
   margin: 30px 0;
 }
+
+@media screen and (min-width: 1980px) {
+  section {
+    font-size: 29px;
+  }
+
+  [class*=" devicon-"], [class^=devicon-] {
+    font-size: 150px;
+  }
+
+  #sidebar-wrapper {
+    margin-left: -250px;
+    left: 253px;
+    width: 232px;
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+    font-size: 31px;
+  }
+
+  div.col-md-12 {
+    padding-left: 40px;
+  }
+
+  .sidebar-nav li:before {
+    content: "";
+    position: absolute;
+    left: -13.5px;
+    border-left: 1px solid #de4f4f;
+    height: 72%;
+    width: 1px;
+    top: 28px;
+  }
+
+  .sidebar-nav li:first-child:before {
+    top: 27px;
+  }
+
+  span.buttonText {
+    font-size: 22px
+  }
+
+  h4 {
+    font-size: 27px;
+  }
+
+  h2 {
+    font-size: 43px;
+  }
+
+  blockquote {
+    font-size: 28.5px
+  }
+
+  .profile-info h1 {
+    font-size: 72px;
+    color: #de4f4f;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
