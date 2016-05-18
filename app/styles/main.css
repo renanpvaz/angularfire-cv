@@ -463,6 +463,17 @@ span.buttonText {
     font-size: 72px;
     color: #de4f4f;
   }
+
+  #loggedUser {
+    position: absolute;
+    right: 21px;
+    top: 57px;
+    font-size: 18px;
+  }
+
+  #customBtn {
+    border: 2px solid #de4f4f;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -598,4 +609,51 @@ i.devicon-github-plain.colored:before:hover {
 
 rzslider .rz-bar.rz-selection {
     background: #de4f4f;
+}
+
+@media (max-width:882px) {
+  body {
+    overflow-y: scroll;
+  }
+}
+@media (max-width:480px) {
+  #loggedUser {
+    right: 14px;
+    top: 43px;
+    font-size: 11px;
+  }
+
+  section p {
+    font-size: 14px;
+  }
+
+  span.buttonText {
+    font-size: 11px;
+  }
+
+  #customBtn {
+    margin: 7px;
+    padding: 5px 13px;
+  }
+
+  .profile-info h1 {
+    font-size: 44px;
+  }
+
+  #sidebar-toggle {
+    font-size: 11px;
+  }
+
+  h2 {
+    font-size: 26px;
+    margin-top: 10px
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  [class*=" devicon-"], [class^=devicon-] {
+    font-size: 56px;
+  }
 }
