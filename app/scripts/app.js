@@ -9,14 +9,12 @@
  * Main module of the application.
  */
 angular.module('angularfireCvApp', [
-    'ngRoute',
-    'firebase',
-    'firebase.ref',
-    'firebase.auth',
-    'duScroll',
-    'ngSanitize',
-    'ng-showdown',
-    'ngAnimate',
-    'monospaced.elastic',
-    'rzModule'
+  'ngRoute',
+  'firebase',
+  'firebase.ref',
+  'firebase.auth',
+  'ngSanitize',
+  'ng-showdown',
+  'ngAnimate',
+  'monospaced.elastic',
   ]);
